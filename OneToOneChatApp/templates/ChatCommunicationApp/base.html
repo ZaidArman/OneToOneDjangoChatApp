@@ -1,0 +1,56 @@
+{% load static %}
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock title %} One-2-One Django ChatApp </title>
+
+    <!-- Include Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="{% static 'css/main.css' %}"> -->
+
+    <style>
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body class=" bg-sky-300">
+    <nav class="flex item-center justify-between px-4 py-6 bg-red-300">
+        <div>
+            <a href="/" class="text-white-600"><b>Django ChatApp</b> </a>
+        </div>
+        <div class="flex item-center space-x-4"> 
+            
+            {% if request.user.is_authenticated %}
+            <a href="/rooms/" class="text-white-600 hover:text-gray-200"> Rooms</a>
+            
+            <a href="/logout/" class="px-4 py-2 rounded-xl text-white-600 bg-teal-300 bg-teal-700"> Logout</a>
+
+            {% else %}
+
+            <a href="/login/" class="text-white-600 hover:text-gray-200"> Log In</a>
+            
+            <a href="/signup/" class="px-4 py-2 rounded-xl text-white-600 bg-teal-300 bg-teal-700"> Sign Up</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    
+    {% block content %}
+        
+    {% endblock content %}
+
+    
+    {% block scripts %}
+        
+    {% endblock %}
+
+</body>
+
+</html>

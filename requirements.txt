@@ -1,0 +1,13 @@
+Django
+django-environ
+djangorestframework
+djangorestframework-jwt
+PyJWT
+python-dotenv
+requests
+sqlparse
+
+# important
+Django==3.2.9
+channels==3.0.4
+channels-redis==3.3.1
